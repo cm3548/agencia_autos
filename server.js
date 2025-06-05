@@ -437,12 +437,14 @@ app.post('/agendar-cita', checkCliente, (req, res) => {
     `INSERT INTO citas (userId, autoId, fecha, comentario, estado, createdAt)
      VALUES (?, ?, ?, ?, 'pendiente', ?)`
   );
-  stmt.run([userId, autoId, fecha, comentario || '', createdAt], function (err) {
+  stmt.run([userId, autoId, fecha, comentario || '', createdAt], async function (err) {
     if (err) {
       console.error('Error en INSERT /agendar-cita:', err.message);
       console.error(err.stack);
       return res.status(500).json({ message: 'Error del servidor.' });
     }
+
+    // Construimos el objeto de la nueva cita para devolver al cliente
     const nuevaCita = {
       id: this.lastID,
       userId,
@@ -452,6 +454,13 @@ app.post('/agendar-cita', checkCliente, (req, res) => {
       estado: 'pendiente',
       createdAt
     };
+
+    // ───> Aquí regeneramos el JSON en disco <───
+    // Esto asegura que, aunque el admin esté logueado, al recargar su vista
+    // obtenga las citas más recientes.
+    generarReporteCitas();
+
+    // Finalmente devolvemos respuesta al cliente que agendó
     return res.status(201).json({
       message: 'Cita agendada correctamente.',
       cita: nuevaCita
