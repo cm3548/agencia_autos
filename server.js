@@ -676,5 +676,4 @@ app.use((req, res) => {
 // ───────────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`Servidor arrancado en http://localhost:${PORT}`);
-  generarReporteCitas();
 });
