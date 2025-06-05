@@ -1,0 +1,57 @@
+<!-- views/agendar.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxCar - Agendar Cita</title>
+  <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+<body class="luxury-background">
+
+  <div class="sparkles-container">
+    <!-- sparkles iguales a las demás páginas -->
+    <!-- ... -->
+  </div>
+
+  <div class="container">
+    <h1 class="logo-title">LuxCar</h1>
+    <h2 class="sub-logo">AGENDAR CITA</h2>
+
+    <!--
+      1) En lugar de mostrar “Cargando información del auto”,
+         ahora mostramos un <select> para que el cliente elija
+         uno de todos los autos activos.
+    -->
+    <div id="autoSeleccionado" class="auto-info" style="text-align:center; color:white; margin-bottom:2rem;">
+      <label for="autoSelect" style="display:block; margin-bottom:0.5rem; color: #ffd700;">
+        Selecciona un auto:
+      </label>
+      <select id="autoSelect" required style="padding:0.5rem; width:100%; max-width: 300px;">
+        <option value="">-- Cargando autos... --</option>
+      </select>
+    </div>
+
+    <form id="formCita" class="formulario" style="max-width:400px; margin:0 auto;">
+      <!-- Eliminamos el input hidden de autoId -->
+      <label for="fecha">Fecha deseada:</label>
+      <input type="date" id="fecha" name="fecha" required />
+
+      <label for="comentario">Comentario (opcional):</label>
+      <textarea id="comentario" name="comentario" rows="3" placeholder="Algo extra que quieras agregar…"></textarea>
+
+      <button type="submit" class="btn" style="margin-top:1rem;">Enviar Solicitud</button>
+    </form>
+
+    <div style="margin-top: 2rem; text-align:center;">
+      <a href="/" class="btn">Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="car-animation"><div class="car"></div></div>
+  <div class="road"></div>
+
+  <!-- Apunta a nuestro JS modificado -->
+  <script src="/public/js/agendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+/* ────────────────────────────────────────────────────────────────────────
+   1. Reset y estilos básicos
+   ──────────────────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f8f8f8;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  /* Permitimos scroll para que las tarjetas no queden fuera de la vista */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* Quitamos height:100% para que el contenido crezca naturalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Centra hacia arriba en lugar de verticalmente */
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   2. Tipografía y encabezados
+   ──────────────────────────────────────────────────────────────────────── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem; /* Reducido para pantallas grandes */
+  color: rgb(231, 209, 172);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   3. Botones generales
+   ──────────────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37 0%, #f9e076 100%);
+  color: #0a0a0a;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(212, 175, 55, 0.3);
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   4. Animación de auto y carretera
+   ──────────────────────────────────────────────────────────────────────── */
+.car-animation {
+  position: absolute;
+  bottom: -80px; /* Levantamos un poco para no ocupar tanto */
+  left: 0;
+  width: 100%;
+  height: 150px; /* Reducido para que no tape contenido */
+  z-index: 1;
+  overflow: hidden;
+}
+
+.car {
+  position: absolute;
+  width: 200px;
+  height: 70px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23d4af37" d="M135.2 117.4L109.1 192H402.9l-26.1-74.6C372.3 104.6 360.2 96 346.6 96H165.4c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32H346.6c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2V400v48c0 17.7-14.3 32-32 32H448c-17.7 0-32-14.3-32-32V400H96v48c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V400 256c0-26.7 16.4-49.6 39.6-59.2zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>') no-repeat center center;
+  background-size: contain;
+  animation: drive 6s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7));
+}
+
+@keyframes drive {
+  0% {
+    left: -200px;
+    transform: rotateY(0deg);
+  }
+  49% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    left: 100%;
+    transform: rotateY(180deg);
+  }
+  99% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    left: -200px;
+    transform: rotateY(0deg);
+  }
+}
+
+.road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; /* Reducido para ocupar menos espacio */
+  background-color: #222;
+}
+
+.road::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px; /* Más delgado */
+  background: repeating-linear-gradient(
+    to right,
+    rgb(231, 209, 172) 0%,
+    rgb(231, 209, 172),
+    transparent 20%,
+    transparent 40%
+  );
+  transform: translateY(-50%);
+  animation: road-line 0.5s linear infinite;
+}
+
+@keyframes road-line {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -40px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   5. Sparkles (brillos)
+   ──────────────────────────────────────────────────────────────────────── */
+.sparkle {
+  position: absolute;
+  width: 3px; /* Reducido */
+  height: 3px;
+  background-color: rgb(231, 209, 172);
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 3s infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   6. Adaptaciones para pantallas pequeñas
+   ──────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   7. Contenedor y tarjetas de autos
+   ──────────────────────────────────────────────────────────────────────── */
+.autos-grid {
+  display: grid;
+  /* Cada tarjeta tendrá al menos 200px, hasta 1fr si hay espacio */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;       /* Espacio entre tarjetas */
+  margin-top: 2rem;
+  width: 100%;
+  /* Quitamos margins excesivos, centramos en la pantalla */
+}
+
+.auto-card {
+  background-color: #111;
+  border: 2px solid rgb(231, 209, 172);
+  border-radius: 8px;  /* Más pequeño */
+  padding: 0.8rem;     /* Menos padding */
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auto-card:hover {
+  transform: scale(1.03);
+}
+
+.auto-card img {
+  width: 100%;
+  max-height: 120px; /* Altura máxima */
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+}
+
+.auto-card h3 {
+  color: rgb(231, 209, 172);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.auto-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.6rem;
+}
+
+/* Botón dentro de la tarjeta */
+.auto-card button,
+.auto-card a.btn {
+  background-color: rgb(231, 209, 172);
+  color: #0a0a0a;
+  padding: 8px 16px;  /* Más pequeño */
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.auto-card button:hover,
+.auto-card a.btn:hover {
+  background-color: rgb(231, 209, 172);
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   8. Formulario (registro, login, agendar, admin)
+   ──────────────────────────────────────────────────────────────────────── */
+.formulario {
+  background-color: #111;
+  padding: 1.5rem;     /* Menos padding para que no sea tan grande */
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  max-width: 360px;     /* Un poco más estrecho */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;          /* Menos espacio entre campos */
+  margin: 0 auto;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #222;
+  color: #f8f8f8;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: 2px solid #d4af37;
+}
+
+.formulario label {
+  text-align: left;
+  font-weight: 600;
+  color: #f8f8f8;
+  font-size: 0.9rem;
+}
+
+/* Botón de envío dentro del formulario */
+.formulario button {
+  margin-top: 0.5rem;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   9. Mensajes de estado (vacío o error)
+   ──────────────────────────────────────────────────────────────────────── */
+.texto-vacio,
+.texto-error {
+  color: rgb(231, 209, 172);
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 1rem;
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   10. Ajustes en mobile para el grid de autos
+   ──────────────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .autos-grid {
+    grid-template-columns: 1fr; /* En móvil, una columna */
+  }
+  .auto-card {
+    max-width: 90%;   /* Ocupar casi todo el ancho en móvil */
+  }
+}

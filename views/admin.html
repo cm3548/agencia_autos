@@ -1,0 +1,93 @@
+<!-- views/admin.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxCar - Administrador</title>
+  <link rel="stylesheet" href="/public/css/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="luxury-background">
+
+  <div class="sparkles-container">
+    <div class="sparkle" style="top:8%; left:15%"></div>
+    <div class="sparkle" style="top:32%; left:67%"></div>
+    <div class="sparkle" style="top:55%; left:13%"></div>
+    <div class="sparkle" style="top:80%; left:60%"></div>
+    <div class="sparkle" style="top:45%; left:88%"></div>
+  </div>
+
+  <div class="container">
+    <h1 class="logo-title">LuxCar</h1>
+    <h2 class="sub-logo">ADMINISTRADOR</h2>
+
+    <!-- Botón para mostrar/ocultar formulario de agregar auto -->
+    <button id="toggleFormBtn" class="btn" style="margin-bottom:1.5rem;">
+      Agregar Auto Nuevo
+    </button>
+
+    <div id="formAutoContainer" style="display: none;">
+      <form
+        id="formAuto"
+        class="formulario"
+        action="/autos/nuevo"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <input
+          type="text"
+          name="marca"
+          placeholder="Marca del auto"
+          required
+        />
+        <input
+          type="text"
+          name="modelo"
+          placeholder="Modelo del auto"
+          required
+        />
+        <input
+          type="number"
+          step="0.01"
+          name="precio"
+          placeholder="Precio $"
+          required
+        />
+        <textarea
+          name="descripcion"
+          placeholder="Descripción (opcional)"
+          rows="3"
+        ></textarea>
+        <input
+          type="file"
+          name="imagen"
+          accept="image/*"
+          required
+        />
+        <button type="submit" class="btn">Agregar Auto</button>
+      </form>
+    </div>
+
+    <!-- Sección de autos en inventario -->
+    <h2 style="margin:2rem 0 1rem 0;">Autos en inventario</h2>
+    <div id="autosAdmin" class="autos-grid"></div>
+
+    <!-- NUEVA SECCIÓN: Listado de Citas -->
+    <h2 style="margin:2rem 0 1rem 0; color: #ffd700;">Citas Registradas</h2>
+    <div id="citasContainer" class="citas-list"></div>
+
+    <div style="margin-top:2rem; text-align:center;">
+      <a href="/" class="btn">Cerrar sesión</a>
+    </div>
+  </div>
+
+  <div class="car-animation"><div class="car"></div></div>
+  <div class="road"></div>
+
+  <script src="/public/js/admin.js"></script>
+</body>
+</html>

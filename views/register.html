@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxCar - Registro</title>
+  <link rel="stylesheet" href="/public/css/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="luxury-background">
+
+  <div class="sparkles-container">
+    <div class="sparkle" style="top:10%; left:10%"></div>
+    <div class="sparkle" style="top:40%; left:25%"></div>
+    <div class="sparkle" style="top:70%; left:70%"></div>
+    <div class="sparkle" style="top:80%; left:50%"></div>
+    <div class="sparkle" style="top:30%; left:90%"></div>
+  </div>
+
+  <div class="container">
+    <h1 class="logo-title">LuxCar</h1>
+    <h2 class="sub-logo">REGISTRO</h2>
+
+    <!-- 1) Asegúrate de que el formulario tiene el ID correcto -->
+    <!-- 2) No es necesario poner action="/register" ni method="POST", porque vamos a interceptar con JS -->
+    <form id="registerForm" class="formulario">
+      <input
+        type="text"
+        name="nombre"
+        placeholder="Nombre completo"
+        required
+      />
+      <input
+        type="email"
+        name="correo"
+        placeholder="Correo electrónico"
+        required
+      />
+      <!-- 3) El name="contraseña" en este caso coincide con server.js -->
+      <input
+        type="password"
+        name="contraseña"
+        placeholder="Contraseña"
+        required
+      />
+      <button type="submit" class="btn">Registrarse</button>
+      <p>
+        ¿Ya tienes cuenta?
+        <a href="/login" style="color: #d4af37;">Inicia sesión</a>
+      </p>
+    </form>
+  </div>
+
+  <div class="car-animation">
+    <div class="car"></div>
+  </div>
+  <div class="road"></div>
+
+  <!-- 
+    4) Cambiamos la ruta para que apunte a /public/js/register.js 
+       (ya que en server.js haces `app.use('/public', express.static(...))`).
+  -->
+  <script src="/public/js/register.js"></script>
+</body>
+</html>

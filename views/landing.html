@@ -1,0 +1,129 @@
+<!-- views/landing.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LuxCar</title>
+  <style>
+    /* Reset básico */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    /* Fondo principal */
+    .fondo-principal {
+      background-color: #000; /* negro de base */
+      background-image: url('/public/img/IMG4.jpg'); /* tu imagen de fondo */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: rgb(231, 209, 172);
+    }
+
+    /* Encabezado con logo centrado */
+    .encabezado {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .encabezado img {
+      max-width: 250px;
+      height: auto;
+    }
+
+    /* Contenedor central */
+    .contenido {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .contenido h2 {
+      font-size: 2.4em;
+      margin-bottom: 20px;
+      color: #FFD700; /* dorado */
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    .contenido p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+      color: #EFE1B8; /* tono crema */
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+
+    /* Botón “Aceptar” */
+    .btn-aceptar {
+      background-color: #FFD700; /* dorado */
+      color: #000; /* negro */
+      padding: 14px 32px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .btn-aceptar:hover {
+      background-color: #FFE766;
+    }
+
+    /* Pie de página */
+    .pie {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9em;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #EFE1B8;
+    }
+  </style>
+</head>
+<body class="fondo-principal">
+  <!-- Encabezado con logo -->
+  <header class="encabezado">
+    <!-- Asegúrate de tener tu logo en /public/img/logo.png -->
+    <img src="/public/img/logo.png" alt="LuxCar Logo" />
+  </header>
+
+  <!-- Contenido central -->
+  <main class="contenido">
+    <h2>Donde la elegancia y el lujo se encuentran</h2>
+    <p>
+      Encuentra tu nuevo auto de lujo con nosotros.
+    </p>
+    <button id="aceptarBtn" class="btn-aceptar">Aceptar</button>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="pie">
+    <p>&copy; 2025 LuxCar. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Al hacer clic en “Aceptar”, redirige a /inicio (tu index original)
+    document.getElementById('aceptarBtn').addEventListener('click', () => {
+      window.location.href = '/inicio';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxCar - Iniciar Sesión</title>
+  <link rel="stylesheet" href="/public/css/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="luxury-background">
+
+  <div class="sparkles-container">
+    <div class="sparkle" style="top:10%; left:10%"></div>
+    <div class="sparkle" style="top:40%; left:25%"></div>
+    <div class="sparkle" style="top:70%; left:70%"></div>
+    <div class="sparkle" style="top:80%; left:50%"></div>
+    <div class="sparkle" style="top:30%; left:90%"></div>
+  </div>
+
+  <div class="container">
+    <h1 class="logo-title">LuxCar</h1>
+    <h2 class="sub-logo">INICIO DE SESIÓN</h2>
+
+    <!-- 1) El formulario debe tener un ID para que login.js lo seleccione -->
+    <form id="loginForm" class="formulario">
+      <input
+        type="email"
+        name="correo"
+        placeholder="Correo electrónico"
+        required
+      />
+      <input
+        type="password"
+        name="contraseña"
+        placeholder="Contraseña"
+        required
+      />
+      <button type="submit" class="btn">Ingresar</button>
+      <p>
+        ¿No tienes cuenta?
+        <a href="/register" style="color: #d4af37;">Regístrate aquí</a>
+      </p>
+    </form>
+  </div>
+
+  <div class="car-animation">
+    <div class="car"></div>
+  </div>
+  <div class="road"></div>
+
+  <!-- 2) IMPORTANTE: Asegúrate de que esta ruta sea correcta -->
+  <script src="/public/js/login.js"></script>
+</body>
+</html>

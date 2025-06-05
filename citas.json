@@ -1,0 +1,41 @@
+[
+  {
+    "citaId": 3,
+    "fecha": "2025-06-13",
+    "comentario": "llego 2:13",
+    "estado": "pendiente",
+    "fechaCreacion": "2025-06-05T05:45:56.849Z",
+    "userId": 2,
+    "nombreUsuario": "Cristian Mendoza Tejeda",
+    "correoUsuario": "cm3548@gmail.com",
+    "autoId": 7,
+    "descripcionAuto": "porsche  911 2025",
+    "precioAuto": 2500708
+  },
+  {
+    "citaId": 2,
+    "fecha": "2025-06-08",
+    "comentario": "llego a las 3:00 pm ",
+    "estado": "pendiente",
+    "fechaCreacion": "2025-06-05T05:40:29.314Z",
+    "userId": 5,
+    "nombreUsuario": "Erick Galindo ",
+    "correoUsuario": "erick123@gmail.com",
+    "autoId": 6,
+    "descripcionAuto": "toyota GR86 2025",
+    "precioAuto": 657282
+  },
+  {
+    "citaId": 1,
+    "fecha": "2025-06-05",
+    "comentario": "llego a las 12:30",
+    "estado": "cancelada",
+    "fechaCreacion": "2025-06-05T04:08:42.551Z",
+    "userId": 2,
+    "nombreUsuario": "Cristian Mendoza Tejeda",
+    "correoUsuario": "cm3548@gmail.com",
+    "autoId": 2,
+    "descripcionAuto": "Audi Audi A1 Sportback 2025",
+    "precioAuto": 659900
+  }
+]
